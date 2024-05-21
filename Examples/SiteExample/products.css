@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "sfont";
+  src: url(ImperialScript-Regular.ttf);
+}
+
+.box1{
+  background-image: url(sigma7.png);
+  background-size: 115% 130%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.box2{
+  /*background-image: url(sigma7.png);
+  background-size: 100% 100%;*/
+  position: absolute;
+  left: -8%;
+  top: -56%;
+  width: 115%;
+  height: 266%;
+}
+
+.sign1{position: absolute;top: 76%;left: 43%;width: 15%;height: auto;}
+.sign2{position: absolute;top: 15%;left: 12%;width: 12%;height: 10%;}
+.sign3{position: absolute;top: 15%;left: 32%;width: 12%;height: 10%;}
+.sign4{position: absolute;top: 15%;left: 54%;width: 12%;height: 10%;}
+.sign5{position: absolute;top: 15%;left: 66.2%;width: 12%;height: 10%;}
+.sign6{position: absolute;top: 15%;left: 78.4%;width: 12%;height: 10%;}
+
+.p1{position: absolute;top: 7%;left: 14.5%;font-family: "sfont";font-size: 4vw;color: rgba(182, 238, 225, 1);text-decoration: none;cursor: default;}
+.p2{position: absolute;top: 7%;left: 34.5%;font-family: "sfont";font-size: 4vw;color: rgba(182, 238, 225, 1);text-decoration: none;cursor: default;}
+.p3{position: absolute;top: 7%;left: 56.5%;font-family: "sfont";font-size: 4vw;color: rgba(182, 238, 225, 1);text-decoration: none;cursor: default;}
+.p4{position: absolute;top: 7%;left: 68.7%;font-family: "sfont";font-size: 4vw;color: rgba(182, 238, 225, 1);text-decoration: none;cursor: default;}
+.p5{position: absolute;top: 7%;left: 80.9%;font-family: "sfont";font-size: 4vw;color: rgba(182, 238, 225, 1);text-decoration: none;cursor: default;}
+.p6{position: absolute;top: 9%;left: 14.5%;font-family: "sfont";font-size: 3.5vw;color: rgb(250, 249, 167);text-decoration: none;cursor: default;}
+.p7{position: absolute;top: 9%;left: 34.5%;font-family: "sfont";font-size: 3.5vw;color: rgb(250, 249, 167);text-decoration: none;cursor: default;}
+.p8{position: absolute;top: 9%;left: 56.5%;font-family: "sfont";font-size: 3.5vw;color: rgb(250, 249, 167);text-decoration: none;cursor: default;}
+.p9{position: absolute;top: 9%;left: 68.7%;font-family: "sfont";font-size: 3.5vw;color: rgb(250, 249, 167);text-decoration: none;cursor: default;}
+.p10{position: absolute;top: 9%;left: 80.9%;font-family: "sfont";font-size:3.5vw;color: rgb(250, 249, 167);text-decoration: none;cursor: default;}
+
+.potion1{position: absolute;top: 28%;left: 9%;width: 18%;height: auto;rotate: -55deg;}
+.potion2{position: absolute;top: 27%;left: 29%;width: 18%;height: auto;rotate: -55deg;}
+.potion3{position: absolute;top: 41%;left: 53%;width: 17%;height: auto;rotate: 4deg;}
+.potion4{position: absolute;top: 27%;left: 72%;width: 6.9%;height: auto;rotate: 0deg;}
+.potion5{position: absolute;top: 25%;left: 81%;width: 7.5%;height: auto;rotate: 0deg;}
+
+.arrow1{position: absolute;top: 76%;left: 45%;width: 11%;height: auto;rotate: 180deg;}
+
+.description {
+  display: none;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+.product:hover .description {
+  display: block;
+  opacity: 1;
+}
+
+.dbox1{
+  position: absolute;
+  top: 53%;
+  left: 10%;
+  width: 16%;
+  height: 16%;
+  background-color: wheat;
+  color: black;
+}
+.dp1{position: absolute;top: -4%;left: 17%;font-family: "sfont";font-size: 1.2vw;}
+.dp6{position: absolute;top: 23%;left: 16%;font-family: "sfont";font-size: 1vw;word-break: break-all;width: 10.8vw;height: 3vw;text-align: center;}
+
+.dbox2{
+  position: absolute;
+  top: 53%;
+  left: 30%;
+  width: 16%;
+  height: 16%;
+  background-color: wheat;
+  color: black;
+}
+.dp2{position: absolute;top: -4%;left: 22%;font-family: "sfont";font-size: 1.2vw;}
+.dp7{position: absolute;top: 23%;left: 16%;font-family: "sfont";font-size: 1vw;word-break: break-all;width: 10.8vw;height: 3vw;text-align: center;}
+
+.dbox3{
+  position: absolute;
+  top: 53%;
+  left: 53%;
+  width: 16%;
+  height: 16%;
+  background-color: wheat;
+  color: black;
+}
+.dp3{position: absolute;top: -4%;left: 24%;font-family: "sfont";font-size: 1.2vw;}
+.dp8{position: absolute;top: 23%;left: 16%;font-family: "sfont";font-size: 1vw;word-break: break-all;width: 11.3vw;height: 3vw;text-align: center;}
+
+.dbox4{
+  position: absolute;
+  top: 53%;
+  left: 67%;
+  width: 16%;
+  height: 16%;
+  background-color: wheat;
+  color: black;
+}
+.dp4{position: absolute;top: -4%;left: 12%;font-family: "sfont";font-size: 1.2vw;}
+.dp9{position: absolute;top: 23%;left: 16%;font-family: "sfont";font-size: 1vw;word-break: break-all;width: 11.5vw;height: 3vw;text-align: center;}
+
+.dbox5{
+  position: absolute;
+  top: 53%;
+  left: 76%;
+  width: 16%;
+  height: 16%;
+  background-color: wheat;
+  color: black;
+}
+.dp5{position: absolute;top: -4%;left: 26%;font-family: "sfont";font-size: 1.2vw;}
+.dp10{position: absolute;top: 23%;left: 16%;font-family: "sfont";font-size: 1vw;word-break: break-all;width: 11.5vw;height: 3vw;text-align: center;}

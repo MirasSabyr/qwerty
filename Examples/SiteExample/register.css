@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "sfont";
+    src: url(Belcanto-Modern.ttf);
+}
+@font-face {
+    font-family: "font";
+    src: url(Makcex.ttf);
+}
+@font-face {
+    font-family: "f";
+    src: url(Britannic-Bold.ttf);
+}
+
+.sbox1{background-image: url(sigma7.png);background-size: 100% 100%;position: absolute;left: 0%;top: 0%;width: 100%;height: 100%;overflow: hidden;filter: brightness(25%);}
+
+.scroll{width: 58%;height: auto;position: absolute;top: 3%;left: 21%;}
+
+
+.box1{position: absolute;top: 10%;left: 10%;width: 10%;height: 10%;background-color: #a68d71;}
+
+.p1{position: absolute;top: 21%;left: 47.5%;font-family: "sfont";font-size: 2.5vw;cursor: default;}
+.p2{position: absolute;top: 32%;left: 42.5%;font-family: "sfont";font-size: 2.5vw;cursor: default;}
+.p3{position: absolute;top: 43%;left: 32.5%;font-family: "sfont";font-size: 2.5vw;cursor: default;}
+.p4{position: absolute;top: 8%;left: 41.5%;font-family: "f";font-size: 3.5vw;cursor: default;}
+.p5{position: absolute;top: 8%;left: 40.5%;font-family: "f";font-size: 3.5vw;cursor: default;}
+.p6{
+    position: absolute;
+    top: 23vw;
+    left: 56%;
+    font-size: 2vw;
+    font-family: "2";
+    color: wheat;
+    cursor: pointer;
+    word-wrap: break-word;
+    border: 0.5vw ridge rgba(211, 220, 50, .6);
+    background-color: #a68d71;
+}
+.p7{
+    position: absolute;
+    top: 28vw;
+    left: 56%;
+    font-size: 2vw;
+    font-family: "2";
+    color: wheat;
+    cursor: pointer;
+    word-wrap: break-word;
+    border: 0.5vw ridge rgba(211, 220, 50, .6);
+    background-color: #a68d71;
+}
+.crest{position: absolute;top: 15%;left: 30%;width: 9%;height: auto;}
+input[type=text] {
+    width: 11vw;
+    height: 4vw;
+    transition: 0.5s;
+    background-color: #a68d71;
+    color: black;
+    padding-left: 1vw;
+    text-decoration: underline;
+    text-decoration-line: grammar-error;
+    border: none;
+    font-family: "font";
+    font-size: 1.5vw;
+    outline: none;
+}
+input[type=password] {
+    width: 11vw;
+    height: 4vw;
+    transition: 0.5s;
+    background-color: #a68d71;
+    color: black;
+    padding-left: 1vw;
+    text-decoration: underline;
+    text-decoration-line: grammar-error;
+    border: none;
+    font-family: "font";
+    font-size: 1.5vw;
+    outline: none;
+}
+
+input[type=text]:focus {
+    filter: brightness(110%);
+}
+input[type=password]:focus {
+    filter: brightness(110%);
+}
+
+input[type="text"]::-webkit-input-placeholder {color: rgb(181, 199, 63);} 
+input[type="text"]::-moz-placeholder {color: rgb(181, 199, 63);} 
+input[type='text']:-ms-input-placeholder{color: rgb(181, 199, 63);} 
+
+input[type="password"]::-webkit-input-placeholder {color: rgb(181, 199, 63);} 
+input[type="password"]::-moz-placeholder {color: rgb(181, 199, 63);} 
+input[type='password']:-ms-input-placeholder{color: rgb(181, 199, 63);} 
+
+.f1 {
+    position: absolute;
+    top: 12vw;
+    left: 55%;
+}
+.f2 {
+    position: absolute;
+    top: 17vw;
+    left: 55%;
+}
+.f3 {
+  position: absolute;
+  top: 22vw;
+  left: 55%;
+}
