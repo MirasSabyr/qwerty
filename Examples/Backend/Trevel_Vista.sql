@@ -43,6 +43,28 @@ INSERT INTO `Маршруты` (`startPos`, `stopPos`, `distance`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `Маршруты`
+--
+
+CREATE TABLE `Пользователи` (
+  `id` int NOT NULL,
+  `firstName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secondName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `Пользователи`
+--
+
+INSERT INTO `Пользователи` (`id`, `firstName`, `secondName`,`isAdmin`) VALUES
+(1, 'Али', 'Нурланулы',1),
+(2, 'Мирас', 'Сабыр',0),
+(3, 'Ерхан', 'Котик',0);
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `Отели`
 --
 
@@ -72,8 +94,7 @@ CREATE TABLE `Билеты` (
   `id` int NOT NULL,
   `airport` int NOT NULL,
   `hotelId` int NOT NULL,
-  `firstName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `secondName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `userId` int NOT NULL,
   `cost` int NOT NULL,
   `days` tinyint NOT NULL,
   `nights` tinyint NOT NULL,
@@ -88,10 +109,10 @@ CREATE TABLE `Билеты` (
 -- Дамп данных таблицы `Билеты`
 --
 
-INSERT INTO `Билеты` (`id`, `airport`, `hotelId`, `firstName`, `secondName`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES
-(1, 2, 1, 'Али', 'Нурланулы', 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 1, 1, '2,3'),
-(2, 2, 1, 'Мирас', 'Сабыр', 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 0, 1, '1'),
-(3, 2, 1, 'Ерхан', 'Котик', 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 0, 1, '1');
+INSERT INTO `Билеты` (`id`, `airport`, `hotelId`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES
+(1, 2, 1, 1, 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 1, 1, '2,3'),
+(2, 2, 1, 2, 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 0, 1, '1'),
+(3, 2, 1, 3, 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 0, 1, '1');
 
 -- --------------------------------------------------------
 
@@ -121,6 +142,11 @@ INSERT INTO `Страны` (`id`, `name`) VALUES
 --
 ALTER TABLE `Отели`
   ADD PRIMARY KEY (`id`);
+--
+-- Индексы таблицы `Пользователи`
+--
+ALTER TABLE `Пользователи`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `Билеты`
@@ -142,6 +168,11 @@ ALTER TABLE `Страны`
 -- AUTO_INCREMENT для таблицы `Отели`
 --
 ALTER TABLE `Отели`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `Пользователи`
+--
+ALTER TABLE `Пользователи`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
