@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 22 2024 г., 20:56
+-- Время создания: Май 23 2024 г., 17:21
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `Trevel Vista`
+-- База данных: `Trevel_Vista`
 --
 
 -- --------------------------------------------------------
@@ -43,34 +43,12 @@ INSERT INTO `Маршруты` (`startPos`, `stopPos`, `distance`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Маршруты`
---
-
-CREATE TABLE `Пользователи` (
-  `id` int NOT NULL,
-  `firstName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `secondName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `Пользователи`
---
-
-INSERT INTO `Пользователи` (`id`, `firstName`, `secondName`,`isAdmin`) VALUES
-(1, 'Али', 'Нурланулы',1),
-(2, 'Мирас', 'Сабыр',0),
-(3, 'Ерхан', 'Котик',0);
--- --------------------------------------------------------
-
---
 -- Структура таблицы `Отели`
 --
 
 CREATE TABLE `Отели` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `countryId` int NOT NULL,
   `stars` tinyint NOT NULL,
   `costPerNight` int NOT NULL
@@ -83,6 +61,30 @@ CREATE TABLE `Отели` (
 INSERT INTO `Отели` (`id`, `name`, `countryId`, `stars`, `costPerNight`) VALUES
 (1, 'Cosmos St.Petersburg Olympia Garden Hotel', 1, 4, 45984),
 (2, 'Апарт-отель Port Comfort on Ligovsky 4*', 1, 4, 34216);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `Пользователи`
+--
+
+CREATE TABLE `Пользователи` (
+  `id` int NOT NULL,
+  `login` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secondName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `Пользователи`
+--
+
+INSERT INTO `Пользователи` (`id`, `login`, `password`, `firstName`, `secondName`, `isAdmin`) VALUES
+(1, 'Ali', 'Qwerty123ali@', 'Али', 'Нурланулы', 1),
+(2, 'Miras', 'Mmiras_2007', 'Мирас', 'Сабыр', 0),
+(3, 'Cat', 'IamCAT!', 'Ерхан', 'Котик', 0);
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,7 @@ CREATE TABLE `Билеты` (
   `landingTime` datetime NOT NULL,
   `isAdult` tinyint(1) NOT NULL DEFAULT '1',
   `isHaveLinks` tinyint(1) NOT NULL DEFAULT '0',
-  `links` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `links` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -122,7 +124,7 @@ INSERT INTO `Билеты` (`id`, `airport`, `hotelId`, `userId`, `cost`, `days`
 
 CREATE TABLE `Страны` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -142,6 +144,7 @@ INSERT INTO `Страны` (`id`, `name`) VALUES
 --
 ALTER TABLE `Отели`
   ADD PRIMARY KEY (`id`);
+
 --
 -- Индексы таблицы `Пользователи`
 --
@@ -169,11 +172,12 @@ ALTER TABLE `Страны`
 --
 ALTER TABLE `Отели`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT для таблицы `Пользователи`
 --
 ALTER TABLE `Пользователи`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `Билеты`
