@@ -7,24 +7,49 @@
     <title>Register</title>
 </head>
 <body>
-<div class="sbox1"></div>
-
-<img src="sigma10.png" alt="Scroll" class="scroll">
-
-<p class="p4">Registration</p>
-<p class="p1">Login</p>
-<p class="p2">Password</p>
-<p class="p3">Comfirm Password</p>
-
-<a href='index.php'><img src="sigma11.png" alt="Exit" class="crest"></a>
-        
-<form method="get" action="">
+       
+<form method="post" action="">
     <input type="text" class="f1" name="login" placeholder="Enter your Login">
     <input type="password" class="f2" name="password" placeholder="Enter your Password">
     <input type="password" class="f3" name="confirm" placeholder="Confirm Password">
     <input type="submit" class="p7" value="Отправить">
 </form>
+
 <?php
+
+
+function checkPasswordStrength($password) {
+  $errors = [];
+
+  // Проверка на наличие хотя бы одного специального символа
+  // $patern='#[!@#$%^&*()_+=\[\]{};:,.<>?]#'
+  // if (!preg_match($patern, $password)) {
+  //   $errors[] = "Пароль должен содержать хотя бы один специальный символ. $password";
+  // }
+
+  // Проверка на наличие хотя бы одной буквы в верхнем регистре
+  if (!preg_match('/[A-ZА-ЯЁ]/', $password)) {
+    $errors[] = "Пароль должен содержать хотя бы одну букву в верхнем регистре.";
+  }
+
+  //проверка на длины пароля
+  if (mb_strlen($password)<6) {
+    $errors[]="Пароль меньше шести символов.";
+  }
+
+  if (mb_strlen($password)>20) {
+    $errors[]="Пароль больше двадцати символов.";
+  }
+
+  // Возвращаем массив ошибок, если они есть
+  if (!empty($errors)) {
+    return $errors;
+  } else {
+    return true;
+  }
+}
+
+
 $host = 'localhost'; // имя хоста
 $db_name = 'Trevel_Vista'; // имя базы данных
 $user = 'root'; // имя пользователя
@@ -35,23 +60,34 @@ $link = mysqli_connect($host, $user, $db_password, $db_name) or die(mysqli_error
 mysqli_query($link, "SET NAMES 'utf8'");
 // текст SQL запроса, который будет передан базе
 
-if (!empty($_GET['login']) and !empty($_GET['password'])) {
-    $log = $_GET['login'];
-    $pass = $_GET['password'];
-    $confirm = $_GET['confirm'];
+if (!empty($_POST['login']) and !empty($_POST['password'])) {
+    $log = $_POST['login'];
+    $pass = $_POST['password'];
+    $confirm = $_POST['confirm'];
     if ($pass == $confirm) {
-      $query = "SELECT * FROM Пользователи WHERE login='$log' AND password='$pass'";
-      $res = mysqli_query($link, $query);
-      $user = mysqli_fetch_assoc($res);
+      $result = checkPasswordStrength($pass);
+      echo "<p>$pass<p>";
+      if ($result === true) {
+        $query = "SELECT * FROM Пользователи WHERE login='$log' AND password='$pass'";
+        $res = mysqli_query($link, $query);
+        $user = mysqli_fetch_assoc($res);
 
-      if (empty($user)) {
+        if (empty($user)) {
 
-        $query = "INSERT INTO Пользователи(login, password) VALUES ('$log','$pass')";
-        mysqli_query($link, $query);
-        $_SESSION['auth'] = true;
-        echo "Удачная регистрация.<br>";
+          $query = "INSERT INTO Пользователи(login, password) VALUES ('$log','$pass')";
+          mysqli_query($link, $query);
+          $_SESSION['auth'] = true;
+          echo "Удачная регистрация.<br>";
+        }
+        else{echo "Неудачная регистрация.<br>";}
+        }
+      else {
+        echo "Пароль не соответствует требованиям. Ошибки: <br>";
+        foreach ($result as $error) {
+          echo "- " . $error . "<br>";
+        }
       }
-      else{echo "Неудачная регистрация.<br>";}
+      
 
     } else {
         echo "Пароли не совпадают.<br>";
