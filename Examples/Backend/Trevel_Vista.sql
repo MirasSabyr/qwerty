@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 23 2024 г., 17:21
+-- Время создания: Май 24 2024 г., 09:45
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -24,29 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Маршруты`
+-- Структура таблицы `Countries`
 --
 
-CREATE TABLE `Маршруты` (
-  `startPos` int NOT NULL,
-  `stopPos` int NOT NULL,
-  `distance` int NOT NULL
+CREATE TABLE `Countries` (
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `Маршруты`
+-- Дамп данных таблицы `Countries`
 --
 
-INSERT INTO `Маршруты` (`startPos`, `stopPos`, `distance`) VALUES
-(1, 2, 2822);
+INSERT INTO `Countries` (`id`, `name`) VALUES
+(1, 'Россия'),
+(2, 'Казахстан');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Отели`
+-- Структура таблицы `Hotels`
 --
 
-CREATE TABLE `Отели` (
+CREATE TABLE `Hotels` (
   `id` int NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `countryId` int NOT NULL,
@@ -55,44 +55,39 @@ CREATE TABLE `Отели` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `Отели`
+-- Дамп данных таблицы `Hotels`
 --
 
-INSERT INTO `Отели` (`id`, `name`, `countryId`, `stars`, `costPerNight`) VALUES
+INSERT INTO `Hotels` (`id`, `name`, `countryId`, `stars`, `costPerNight`) VALUES
 (1, 'Cosmos St.Petersburg Olympia Garden Hotel', 1, 4, 45984),
 (2, 'Апарт-отель Port Comfort on Ligovsky 4*', 1, 4, 34216);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Пользователи`
+-- Структура таблицы `Routes`
 --
 
-CREATE TABLE `Пользователи` (
-  `id` int NOT NULL,
-  `login` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `firstName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `secondName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT '0'
+CREATE TABLE `Routes` (
+  `startPos` int NOT NULL,
+  `stopPos` int NOT NULL,
+  `distance` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `Пользователи`
+-- Дамп данных таблицы `Routes`
 --
 
-INSERT INTO `Пользователи` (`id`, `login`, `password`, `firstName`, `secondName`, `isAdmin`) VALUES
-(1, 'Ali', 'Qwerty123ali@', 'Али', 'Нурланулы', 1),
-(2, 'Miras', 'Mmiras_2007', 'Мирас', 'Сабыр', 0),
-(3, 'Cat', 'IamCAT!', 'Ерхан', 'Котик', 0);
+INSERT INTO `Routes` (`startPos`, `stopPos`, `distance`) VALUES
+(1, 2, 2822);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Билеты`
+-- Структура таблицы `Tickets`
 --
 
-CREATE TABLE `Билеты` (
+CREATE TABLE `Tickets` (
   `id` int NOT NULL,
   `airport` int NOT NULL,
   `hotelId` int NOT NULL,
@@ -108,10 +103,10 @@ CREATE TABLE `Билеты` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `Билеты`
+-- Дамп данных таблицы `Tickets`
 --
 
-INSERT INTO `Билеты` (`id`, `airport`, `hotelId`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES
+INSERT INTO `Tickets` (`id`, `airport`, `hotelId`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES
 (1, 2, 1, 1, 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 1, 1, '2,3'),
 (2, 2, 1, 2, 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 0, 1, '1'),
 (3, 2, 1, 3, 112509, 1, 2, '2024-05-22 22:20:00', '2024-06-03 14:30:00', 0, 1, '1');
@@ -119,48 +114,54 @@ INSERT INTO `Билеты` (`id`, `airport`, `hotelId`, `userId`, `cost`, `days`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Страны`
+-- Структура таблицы `Users`
 --
 
-CREATE TABLE `Страны` (
+CREATE TABLE `Users` (
   `id` int NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+  `login` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secondName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `Страны`
+-- Дамп данных таблицы `Users`
 --
 
-INSERT INTO `Страны` (`id`, `name`) VALUES
-(1, 'Россия'),
-(2, 'Казахстан');
+INSERT INTO `Users` (`id`, `login`, `password`, `firstName`, `secondName`, `is_admin`) VALUES
+(1, 'ali', 'a', 'Али', 'Нурланулы', 1),
+(2, 'Miras', 'Mmiras_2007', 'Мирас', 'Сабыр', 1),
+(3, 'Cat', 'IamCAT!', 'Ерхан', 'КотикНяша', 0),
+(4, 'test', 'Test123!', NULL, NULL, 0);
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `Отели`
+-- Индексы таблицы `Countries`
 --
-ALTER TABLE `Отели`
+ALTER TABLE `Countries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `Пользователи`
+-- Индексы таблицы `Hotels`
 --
-ALTER TABLE `Пользователи`
+ALTER TABLE `Hotels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `Билеты`
+-- Индексы таблицы `Tickets`
 --
-ALTER TABLE `Билеты`
+ALTER TABLE `Tickets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `Страны`
+-- Индексы таблицы `Users`
 --
-ALTER TABLE `Страны`
+ALTER TABLE `Users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -168,28 +169,28 @@ ALTER TABLE `Страны`
 --
 
 --
--- AUTO_INCREMENT для таблицы `Отели`
+-- AUTO_INCREMENT для таблицы `Countries`
 --
-ALTER TABLE `Отели`
+ALTER TABLE `Countries`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблицы `Пользователи`
+-- AUTO_INCREMENT для таблицы `Hotels`
 --
-ALTER TABLE `Пользователи`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT для таблицы `Билеты`
---
-ALTER TABLE `Билеты`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT для таблицы `Страны`
---
-ALTER TABLE `Страны`
+ALTER TABLE `Hotels`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `Tickets`
+--
+ALTER TABLE `Tickets`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `Users`
+--
+ALTER TABLE `Users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +32,10 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
     $log = $_POST['login'];
     $pass = $_POST['password'];
 
-    $query = "SELECT * FROM Пользователи WHERE login='$log'  AND password='$pass'";
+    $query = "SELECT * FROM Users WHERE login='$log'  AND password='$pass'";
     $res = mysqli_query($link, $query);
     $user = mysqli_fetch_assoc($res);
-    if (!empty($user) && $user['isAdmin']) { 
+    if (!empty($user) && $user['is_admin']) { 
 
       $_SESSION['is_admin'] = true; 
       $_SESSION['auth'] = true;
