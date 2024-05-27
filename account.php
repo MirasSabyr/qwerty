@@ -16,7 +16,7 @@
 <?php
 session_start();
 
-if ($_SESSION['is_admin']==0) {
+if ($_SESSION['isAdmin']==0) {
   // Перенаправление на главную страницу 
 
   header('Location: index.php'); 

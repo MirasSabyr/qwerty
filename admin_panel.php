@@ -1,12 +1,18 @@
 <?php
 session_start();
-if ($_SESSION['is_admin']) { 
+if (!$_SESSION['isAdmin']) {
+// Перенаправление на главную страницу 
+header('Location: index.php'); 
+exit; 
+}
+echo $_GET['error'];
+?>
 
-// Показать интерфейс администратора 
+<!-- Показать интерфейс администратора  -->
 
-// Форма для изменения цены и статуса товара 
+<!-- Форма для изменения цены и статуса товара  -->
 
-echo "<form method='post' action='update_product.php'> 
+<form method='post' action='update_product.php'> 
 
     <input type='number' name='product_id' placeholder='ID товара'> 
 
@@ -23,17 +29,8 @@ echo "<form method='post' action='update_product.php'>
     <input type='submit' value='Обновить'> 
 
 </form>
-<form method='post' action='update_product.php'><input type='text' name='admin_id' placeholder='ID пользователя'><input type='submit' value='Дать права администратора'> </form>
+<form method='post' action='update_product.php'><input type='text' name='userId_toChangeAdmin' placeholder='ID пользователя'>
+<input type='number' min=0 max=1 name='changeAdmin'>
+<label for='changeAdmin'><?php if (isset($_POST['changeAdmin'])) echo $_POST['changeAdmin'] ?> 0 - убрать права; 1 - дать права</label>
+<input type='submit' value='Изменить права администратора'> </form>
 <a href='exit.php' style='color:red;'>Выход</a>
-"; 
-
-} else { 
-
-// Перенаправление на главную страницу 
-
-header('Location: index.php'); 
-
-exit; 
-
-}
-?>

@@ -35,9 +35,9 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
     $query = "SELECT * FROM Users WHERE login='$log'  AND password='$pass'";
     $res = mysqli_query($link, $query);
     $user = mysqli_fetch_assoc($res);
-    if (!empty($user) && $user['is_admin']) { 
+    if (!empty($user) && $user['isAdmin']) { 
 
-      $_SESSION['is_admin'] = true; 
+      $_SESSION['isAdmin'] = true; 
       $_SESSION['auth'] = true;
 
       // Перенаправление на страницу администратора 
