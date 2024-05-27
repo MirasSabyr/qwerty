@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="register.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
-       
-<form method="post" action="">
-    <input type="text" class="f1" name="login" placeholder="Enter your Login" value="">
-    <input type="password" class="f2" name="password" placeholder="Enter your Password">
-    <input type="password" class="f3" name="confirm" placeholder="Confirm Password">
-    <input type="submit" class="p7" value="Отправить">
-</form>
-
 <?php
 include "base.php";
 
@@ -80,9 +63,11 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
       $user = mysqli_fetch_assoc($res);
 
       if (empty($user)) { 
-        $query = "INSERT INTO Users(login, password) VALUES (?, ?)"; 
+        $fName=$_POST['firstName'];
+        $sName=$_POST['secondName'];
+        $query = "INSERT INTO Users(login, password, firstName, secondName) VALUES (?, ?, ?, ?)"; 
         $stmt = mysqli_prepare($link, $query);
-        mysqli_stmt_bind_param($stmt, 'ss', $log, $pass);
+        mysqli_stmt_bind_param($stmt, 'ssss', $log, $pass, $fName, $sName);
         mysqli_stmt_execute($stmt);
         $_SESSION['auth'] = true; 
         echo "Удачная регистрация.<br>"; 
@@ -102,9 +87,4 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
   } 
 
 }
-
-
 ?>
-
-</body>
-</html>
