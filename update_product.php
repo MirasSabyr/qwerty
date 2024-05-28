@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['isAdmin']) {
+if ($_COOKIE['isAdmin']) {
     $host = 'localhost'; // имя хоста
     $db_name = 'Trevel_Vista'; // имя базы данных
     $user = 'root'; // имя пользователя
