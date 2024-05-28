@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Design by foolishdeveloper.com -->
+    <meta charset="UTF-8">
     <title>Glassmorphism login Form Tutorial in html css</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="auto.css" rel="stylesheet">
     <!--Stylesheet-->
+    <h1 id="myText" class="myText">Приключение ждет...</h1>
     <style media="screen">
       *,
 *:before,
@@ -17,28 +19,15 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url(/travel.webp);
+    background-image: url(/travel.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh; 
+    width: 100%; 
 }
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-
 form{
     height: 520px;
-    width: 400px;
+    width: clamp(300px, 60%, 500px);
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -52,7 +41,7 @@ form{
 }
 form *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
+    color: #000000;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -82,7 +71,8 @@ input{
     font-weight: 300;
 }
 ::placeholder{
-    color: #e5e5e5;
+    color: #000000;
+    font-family: cursive;
 }
 .f6{
     margin-top: 50px;
@@ -121,10 +111,6 @@ input{
     </style>
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
     <form method="post" action="auto.php">
     <h3>Login Here</h3>
     <input type="text" class="f1" name="login" placeholder="Enter your Login" value="">

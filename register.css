@@ -1,16 +1,24 @@
-@keyframes exit {
-    from {opacity: 1;}
-    to {opacity: 0;}
+@keyframes typing {
+  from {
+    width: 0;
+}
+  to {
+    width: 100%;
   }
+}
   
   #myText {
-    animation-name: exit;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
+    font-weight: bold;
+            color: #000000;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 5s steps(40, end);
   }
   
   
   .myText {
       position: absolute;
-      left: 50%;
+      left: 30%;
+      font-family: cursive;
+      font-size: 4.5vw;
   }

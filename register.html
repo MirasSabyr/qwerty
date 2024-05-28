@@ -10,12 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link href="register.css" rel="stylesheet">
     <!--Stylesheet-->
-    <h1 id="myText" class="myText">Привет, мир!</h1>
-    <script>
-        function startAnimation() {
-          document.getElementById("myText").style.animationPlayState = "running";
-        }
-        </script>        
+    <h1 id="myText" class="myText">Готов к путешествию?</h1>
     <style media="screen">
       *,
 *:before,
@@ -24,29 +19,16 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background-image: url(/travel.webp);
+body {
+    background-image: url(/travel.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    height: 100vh; 
+    width: 100%; 
 }
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-
 form{
     height: 520px;
-    width: 400px;
+    width: clamp(300px, 60%, 500px);
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -60,7 +42,7 @@ form{
 }
 form *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
+    color: #000000;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -91,7 +73,8 @@ input{
 }
 
 ::placeholder{
-    color: #e5e5e5;
+    color: #000000;
+    font-family: cursive;
 }
 .f6{
     margin-top: 50px;
@@ -130,10 +113,6 @@ input{
     </style>
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
     <form method="post" action="register.php">
     <h3>Sign Up</h3>
     <input type="text" class="f1" name="login" placeholder="Enter your Login" value="">
