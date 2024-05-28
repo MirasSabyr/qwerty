@@ -16,7 +16,7 @@
 <?php
 session_start();
 
-if ($_SESSION['isAdmin']==0) {
+if ($_COOKIE['isAdmin']==0) {
   // Перенаправление на главную страницу 
 
   header('Location: index.php'); 
@@ -47,7 +47,7 @@ if (!empty($_GET['login']) and !empty($_GET['password'])) {
 
         $query = "INSERT INTO Пользователи(login, password) VALUES ('$log','$pass')";
         mysqli_query($link, $query);
-        $_SESSION['auth'] = true;
+        $_COOKIE['auth'] = true;
         echo "Удачная регистрация.<br>";
       }
       else{echo "Неудачная регистрация.<br>";}

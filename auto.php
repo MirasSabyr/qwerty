@@ -19,8 +19,14 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
     $user = mysqli_fetch_assoc($res);
     if (!empty($user) && $user['isAdmin']) { 
 
-      $_SESSION['isAdmin'] = true; 
-      $_SESSION['auth'] = true;
+        if (!isset($_COOKIE['isAdmin'])) { // если куки нет
+            setcookie('isAdmin', 'true');
+            $_COOKIE['isAdmin'] = 'true';
+        }
+      if (!isset($_COOKIE['auth'])) { // если куки нет
+        setcookie('auth', 'true');
+        $_COOKIE['auth'] = 'true';
+      }
 
       // Перенаправление на страницу администратора 
 
@@ -30,7 +36,7 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
     } 
     if (!empty($user)) {
         // прошел авторизацию
-        $_SESSION['auth'] = true;
+        $_COOKIE['auth'] = true;
         echo "Вы успешно авторизованы.<br>";
         header("Location: main/index.html");
     } else {

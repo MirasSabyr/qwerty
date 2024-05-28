@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION['isAdmin']) {
+if (!$_COOKIE['isAdmin']) {
 // Перенаправление на главную страницу 
 header('Location: index.php'); 
 exit; 

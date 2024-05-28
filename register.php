@@ -69,7 +69,10 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
         $stmt = mysqli_prepare($link, $query);
         mysqli_stmt_bind_param($stmt, 'ssss', $log, $pass, $fName, $sName);
         mysqli_stmt_execute($stmt);
-        $_SESSION['auth'] = true; 
+        if (!isset($_COOKIE['auth'])) { // если куки нет
+          setcookie('auth', 'true');
+          $_COOKIE['auth'] = 'true';
+        }
         header("Location: main/index.html");         
       } 
       else{echo "Логин занят.<br>";} 
