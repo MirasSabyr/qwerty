@@ -1,0 +1,16 @@
+@keyframes exit {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+  
+  #myText {
+    animation-name: exit;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+  
+  
+  .myText {
+      position: absolute;
+      left: 50%;
+  }

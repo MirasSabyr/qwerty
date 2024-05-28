@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
   <!-- Design by foolishdeveloper.com -->
     <title>Glassmorphism login Form Tutorial in html css</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="register.css" rel="stylesheet">
     <!--Stylesheet-->
+    <h1 id="myText" class="myText">Привет, мир!</h1>
+    <script>
+        function startAnimation() {
+          document.getElementById("myText").style.animationPlayState = "running";
+        }
+        </script>        
     <style media="screen">
       *,
 *:before,
@@ -17,7 +25,9 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #080710;
+    background-image: url(/travel.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .background{
     width: 430px;
@@ -33,23 +43,7 @@ body{
     position: absolute;
     border-radius: 50%;
 }
-.shape:first-child{
-    background: linear-gradient(
-        #1845ad,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-}
+
 form{
     height: 520px;
     width: 400px;
@@ -95,6 +89,7 @@ input{
     font-size: 14px;
     font-weight: 300;
 }
+
 ::placeholder{
     color: #e5e5e5;
 }
