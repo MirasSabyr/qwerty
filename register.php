@@ -70,7 +70,7 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
         mysqli_stmt_bind_param($stmt, 'ssss', $log, $pass, $fName, $sName);
         mysqli_stmt_execute($stmt);
         $_SESSION['auth'] = true; 
-        echo "Удачная регистрация.<br>"; 
+        header("Location: main/index.html");         
       } 
       else{echo "Логин занят.<br>";} 
       } 

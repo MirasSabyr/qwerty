@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Navbar Example</title>
+    <link rel="stylesheet" href="tyr.css">
+</head>
+<body >
+  
+<div class="glav">
+  <img src="ss.jpg" alt="" class="gl">
+<div class="h1"><h1>Путешествие вашей мечты</h1></div>
+<div class="h2">Наше туристическое агентство готово предложить вам <br>
+  увлекательный отдых, который будет соответствовать вашим потребностям<br>
+   и пожеланиям.Будь это экзотический круиз или поездка на<br>
+    ваш любимый курорт,вы,несомненно получите незабываемые впечатления.
+</div>
+
+</div>
+
+
+
+<div class="booking-form">
+  <h2>Бронирование поездки</h2>
+  <form action="/ticket.php" method="post">
+      <label for="from">Откуда:</label>
+      <input type="text" id="from" name="from" placeholder="Введите место отправления" required>
+
+      <label for="to">Куда:</label>
+      <input type="text" id="to" name="to" placeholder="Введите место назначения" required>
+
+      <label for="departure-date">Дата отправления:</label>
+      <input type="date" id="departure-date" name="departure-date" required>
+
+      <label for="adults">Количество взрослых:</label>
+      <input type="number" id="adults" name="adults" min="1" value="1" required>
+
+      <label for="children">Количество детей:</label>
+      <input type="number" id="children" name="children" min="0" value="0" required>
+
+      <button type="submit">Забронировать поездку</button>
+  </form>
+</div>
+
+<div class="hot" >HOT TOURS</div>
+<div class="our" >OUR BEST TOURS</div>
+
+
+<div class="gallery">
+  <div class="image-container">
+      <img src="1landing-private-airlines-04-570x370.jpg" alt="Example Image 1">
+      <button class="hover-button">Подробнее</button>
+      <div class="info">
+          <span class="location">Spain, Benidorm</span>
+          <span class="price">from $350</span>
+      </div>
+  </div>
+  <div class="image-container">
+      <img src="2landing-private-airlines-02-570x370.jpg" alt="Example Image 2">
+      <button class="hover-button">Подробнее</button>
+      <div class="info">
+          <span class="location">USA, Boston</span>
+          <span class="price">from $480</span>
+      </div>
+  </div>
+  <div class="image-container">
+      <img src="3landing-private-airlines-06-570x370.jpg" alt="Example Image 3">
+      <button class="hover-button">Подробнее</button>
+      <div class="info">
+          <span class="location">UK, London</span>
+          <span class="price">from $600</span>
+      </div>
+  </div>
+  <div class="image-container">
+      <img src="4landing-private-airlines-05-570x370.jpg" alt="Example Image 4">
+      <button class="hover-button">Подробнее</button>
+      <div class="info">
+          <span class="location">Egypt, Sharm El Sheikh</span>
+          <span class="price">from $520</span>
+      </div>
+  </div>
+  <div class="image-container">
+      <img src="5landing-private-airlines-03-570x370.jpg" alt="Example Image 5">
+      <button class="hover-button">Подробнее</button>
+      <div class="info">
+          <span class="location">Italy, Venice</span>
+          <span class="price">from $350</span>
+      </div>
+  </div>
+  <div class="image-container">
+      <img src="6landing-private-airlines-01-570x370.jpg" alt="Example Image 6">
+      <button class="hover-button">Подробнее</button>
+      <div class="info">
+          <span class="location">France, Paris</span>
+          <span class="price">from $280</span>
+      </div>
+  </div>
+</div>
+
+
+<!-- HTML/JavaScript -->
+<script>
+    // Проверяем значение cookie
+    const authCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('auth='));
+    if (authCookie) {
+        const authValue = authCookie.split('=')[1];
+        if (authValue === 'true') {
+            console.log('Пользователь авторизован.');
+            // Получаем элемент кнопки
+            const signUpButton = document.querySelector('#signUp');
+            signUpButton.style.display = 'none';
+            // При успешной авторизации меняем цвет фона
+            function handleLoginSuccess() {
+                
+            }
+        } else {
+            console.log('Пользователь НЕ авторизован.');
+        }
+    } else {
+        console.log('нету печенек.');
+    }
+</script>
+
+
+    <div class="container"><script href="cait.js"></script>
+     <div  class="logo"><img src="snapedit_1716449613240_pixian_ai.png" alt="Logo"> </div>
+        <div class="navigation">
+       
+          <ul>
+            <a href="" class="q">Главная</a>
+            <a href="" class="q">О нас</a>
+            <a href="" class="q">Контакты</a>
+            <a href="" class="q">Twitter</a>
+            <a href="/register.html" class="q" id="signUp">Sign Up</a>
+          </ul>
+        </div></div>
+     <div class="s"></div>
+
+</body>
+</html>

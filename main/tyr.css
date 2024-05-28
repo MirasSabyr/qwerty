@@ -1,0 +1,305 @@
+
+:root {
+    --background: #333;
+    --text: #FFF;
+    --highlight: #39AC4C;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+  
+
+  
+  .light-theme {
+    --background: #FFF;
+    --text: #000;
+    background: var(--background);
+  
+    .theme-switch {
+      background: var(--text);
+  
+      .switch {
+        transform: translateX(37px);
+      }
+    }
+    a {
+      color: var(--text); 
+    }
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: center;
+  }
+  
+  ul {
+    display: flex;
+    list-style-type: none;
+    a {
+      margin: -11px 29px;
+      position: relative;
+      color: black;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      text-transform: uppercase;
+      text-decoration: none;
+      top: -23px;
+  
+  
+      &:before {
+        position: absolute;
+        bottom: -2px;
+        content: '';
+        width: 100%;
+        height: 3px;
+        background: var(--highlight);
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+  
+      &:hover {
+        &:before {
+          opacity: 1;
+          transition: 0.5s transform ease, 0.8s opacity ease;
+          transform: translateX(0);
+        }
+      }
+    }
+  
+    .active {
+      color: var(--highlight);
+  
+      &:hover {
+        &:before {
+          opacity: 0;
+        }
+      }
+    }
+  }  
+
+    .q:hover {
+        color: #f89d13; /* Цвет фона при наведении */
+       }
+       .q:active {
+        color: #f05347; /* Красный фон у активной кнопки */
+       }
+
+       .logo {
+        width: 10%;
+        margin-left: -83%;
+        position: relative;
+        top: 25px;
+    }
+    .s{
+      position: absolute;
+      top: 300%;
+    }
+
+
+
+
+
+
+.gl{
+  position: absolute;
+  width: 99%;
+filter: brightness(60%);
+}
+.h1 {
+  position: absolute;
+  font-size: 23px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  top: 40%;
+  left: 5%;
+}
+.h2 {
+  position: absolute;
+  font-size: 20px;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: white;
+  top: 55%;
+  left: 5%;
+}
+
+
+
+
+
+.booking-form {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+  top: 187px;
+  position: relative;
+  left: 867px;
+}
+.booking-form h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+}
+.booking-form label {
+  display: block;
+  margin: 15px 0 5px;
+  color: #555;
+  font-size: 14px;
+}
+.booking-form input, .booking-form select, .booking-form button {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.booking-form input:focus, .booking-form select:focus {
+  border-color: #f89d13;
+  outline: none;
+  box-shadow: 0 0 5px #f99500;
+}
+.booking-form button {
+  background-color: #f89d13;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+.booking-form button:hover {
+  background-color: #f89d13;
+}
+
+
+
+.hot {
+  position: absolute;
+  font-size: 110px;
+  font: 900 101px / 1 "Montserrat", sans-serif;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #f7f7f7;
+  z-index: 0;
+  top: 120%;
+  left: 2%;
+}
+.our {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #151515;
+  font-size: 34px;
+  line-height: 1.375;
+  top: 375px;
+  left: 8%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gallery {   font-family: Arial, sans-serif;  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  position: absolute;
+  top: 142%;
+}
+
+.image-container {
+  position: relative;
+  width: 456px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom:32px;
+}
+
+.image-container img {
+  width: 100%;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-radius: 10px;
+}
+
+.image-container .hover-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f89d13;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+.image-container:hover .hover-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.location {
+  text-align: left;
+  font-weight: bold;
+}
+
+.price {
+  text-align: right;
+  font-weight: bold;
+  color: #f89d13;
+}
