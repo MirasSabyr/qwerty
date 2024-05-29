@@ -17,13 +17,16 @@
     ваш любимый курорт,вы,несомненно получите незабываемые впечатления.
 </div>
 
+
+
 </div>
+
 
 
 
 <div class="booking-form">
   <h2>Бронирование поездки</h2>
-  <form action="/ticket.php" method="post">
+  <form action="/submit" method="post">
       <label for="from">Откуда:</label>
       <input type="text" id="from" name="from" placeholder="Введите место отправления" required>
 
@@ -45,6 +48,17 @@
 
 <div class="hot" >HOT TOURS</div>
 <div class="our" >OUR BEST TOURS</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="gallery">
@@ -97,27 +111,50 @@
       </div>
   </div>
 </div>
+<div class="gray">
+
+</div>
+
+<img src="free-icon-plane-tickets-455076.png" class="plane">
+<img src="free-icon-cruise-10578272.png" class="cruis">
+<img src="free-icon-hotel-4052467.png" class="hotell">
+<img src="free-icon-tour-7813515.png" class="tur">
 
 
-<!-- HTML/JavaScript -->
-<script>
-    // Проверяем значение cookie
-    const authCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('auth='));
-    if (authCookie) {
-        const authValue = authCookie.split('=')[1];
-        if (authValue === 'true') {
-            console.log('Пользователь авторизован.');
-            // Получаем элемент кнопки
-            const signUpButton = document.querySelector('#signUp');
-            // При успешной авторизации меняем элемент
-            signUpButton.style.display = 'none';
-        } else {
-            console.log('Пользователь НЕ авторизован.');
-        }
-    } else {
-        console.log('нету печенек.');
-    }
-</script>
+<div class="our_serv">
+    OUR SERVICES
+</div>
+<div class="tickets">
+   
+    Авиабилеты<br>
+    <br>
+    
+
+В нашем туристическом агентстве<br> вы можете забронировать авиабилеты в любую точку мира.<br> Мы также предлагаем онлайн-бронирование <br>билетов через наш веб-сайт,<br> которое выполняется всего за пару шагов.</p>
+</div>
+<div class="cruises">
+   
+    Путешествия и круизы<br>
+    <br>
+
+Помимо обычных туров и экскурсий<br>, мы также предлагаем разнообразные круизы<br> и морские путешествия для разных клиентов,<br> которые ищут потрясающие впечатления.</p>
+</div>
+<div class="hotel">
+    Бронирование отелей<br>
+    <br>
+
+Мы предлагаем широкий выбор отелей,<br> начиная от 5-звездочных и заканчивая<br> небольшими отелями, расположенными по всему миру,<br> чтобы вы могли забронировать отель,<br> который вам нравится.
+</div>
+<div class="tours">
+    Индивидуальные летние туры<br>
+    <br>
+
+Наше агентство предлагает разнообразные<br> туры, в том числе индивидуальные<br> летние туры для клиентов, которые ищут <br>эксклюзивный и запоминающийся отдых.
+</div>
+
+
+
+
 
 
     <div class="container"><script href="cait.js"></script>
@@ -129,11 +166,18 @@
             <a href="" class="q">О нас</a>
             <a href="" class="q">Контакты</a>
             <a href="" class="q">Twitter</a>
-            <a href="/register.html" class="q" id="signUp">Sign Up</a>
-            <a href="/auto.html" class="" id="logIn">LogIn</a>
+     
           </ul>
+          <ol>
+            <a href="/register.html" class="q" id="signUp">Зарегистрироваться</a>
+            <a href="/auto.html" class="q" id="signUp">Войти</a>  
+          </ol>
         </div></div>
-     <div class="s"></div>
+ 
+
+
+
+    
 
 </body>
 </html>
