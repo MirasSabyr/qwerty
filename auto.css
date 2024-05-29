@@ -1,0 +1,26 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    
+    #myText {
+      font-weight: bold;
+              color: #000000;
+              overflow: hidden;
+              white-space: nowrap;
+              animation: fadeIn ease 3s;
+    }
+    
+    
+    .myText {
+        position: absolute;
+        left: 30%;
+        font-family: cursive;
+        font-size: 4.5vw;
+    }

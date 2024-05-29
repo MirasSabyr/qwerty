@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <!-- Design by foolishdeveloper.com -->
     <title>Glassmorphism login Form Tutorial in html css</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <link href="register.css" rel="stylesheet">
+    <link href="auto.css" rel="stylesheet">
     <!--Stylesheet-->
-    <h1 id="myText" class="myText">Готов к путешествию?</h1>
+    <h1 id="myText" class="myText">Приключение ждет...</h1>
     <style media="screen">
       *,
 *:before,
@@ -19,7 +18,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
+body{
     background-image: url(/travel.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -71,7 +70,6 @@ input{
     font-size: 14px;
     font-weight: 300;
 }
-
 ::placeholder{
     color: #000000;
     font-family: cursive;
@@ -113,14 +111,11 @@ input{
     </style>
 </head>
 <body>
-    <form method="post" action="register.php">
-    <h3>Sign Up</h3>
+    <form method="post" action="auto.php">
+    <h3>Login Here</h3>
     <input type="text" class="f1" name="login" placeholder="Enter your Login" value="">
     <input type="password" class="f2" name="password" placeholder="Enter your Password">
-    <input type="password" class="f3" name="confirm" placeholder="Confirm Password">
-    <input type="text" class="f4" name="firstName" placeholder="Your First Name">
-    <input type="text" class="f5" name="secondName" placeholder="Your Second Name">
-    <input type="submit" class="f6" value="Sign Up">
+    <input type="submit" class="f6" value="log In">
     </form>
 </body>
 </html>

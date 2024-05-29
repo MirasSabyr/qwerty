@@ -1,23 +1,5 @@
 <?php
 session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="register.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authorization</title>
-</head>
-<body>
-     
-<form method="post" action="auto.php">
-    <input type="text" class="f1" name="login" placeholder="Вводите Логин">
-    <input type="password" class="f3" name="password" placeholder="Вводите Пароль">
-    <input type="submit" class="f4" value="Отправить">
-</form>
-
-<?php
 $host = 'localhost'; // имя хоста
 $db_name = 'Trevel_Vista'; // имя базы данных
 $user = 'root'; // имя пользователя
@@ -41,6 +23,9 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
             setcookie('isAdmin', 'true');
             $_COOKIE['isAdmin'] = 'true';
         }
+        else {
+            $_COOKIE['isAdmin'] = 'true';
+        }
       if (!isset($_COOKIE['auth'])) { // если куки нет
         setcookie('auth', 'true');
         $_COOKIE['auth'] = 'true';
@@ -56,6 +41,7 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
         // прошел авторизацию
         $_COOKIE['auth'] = true;
         echo "Вы успешно авторизованы.<br>";
+        header("Location: main/index.html");
     } else {
         // неверно ввели логин или пароль
         echo "Неверный логин или пароль.<br>";
