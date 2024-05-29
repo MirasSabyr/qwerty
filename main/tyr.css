@@ -45,6 +45,7 @@
   ul {
     display: flex;
     list-style-type: none;
+   
     a {
       margin: -11px 29px;
       position: relative;
@@ -87,6 +88,67 @@
     }
   }  
 
+
+
+
+
+
+  ol {
+    display: flex;
+    list-style-type: none;
+    position: absolute;
+    left: 77%;
+    a {
+      margin: -11px 29px;
+      position: relative;
+      color: black;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      text-transform: uppercase;
+      text-decoration: none;
+      top: -23px;
+  
+  
+      &:before {
+        position: absolute;
+        bottom: -2px;
+        content: '';
+        width: 100%;
+        height: 3px;
+        background: var(--highlight);
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+  
+      &:hover {
+        &:before {
+          opacity: 1;
+          transition: 0.5s transform ease, 0.8s opacity ease;
+          transform: translateX(0);
+        }
+      }
+    }
+  
+    .active {
+      color: var(--highlight);
+  
+      &:hover {
+        &:before {
+          opacity: 0;
+        }
+      }
+    }
+  } 
+
+
+
+
+
+
+
+
+
+
     .q:hover {
         color: #f89d13; /* Цвет фона при наведении */
        }
@@ -117,7 +179,7 @@ filter: brightness(60%);
 }
 .h1 {
   position: absolute;
-  font-size: 23px;
+  font-size: 27px;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   top: 40%;
@@ -125,7 +187,7 @@ filter: brightness(60%);
 }
 .h2 {
   position: absolute;
-  font-size: 20px;
+  font-size: 23px;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: white;
   top: 55%;
@@ -138,16 +200,17 @@ filter: brightness(60%);
 
 .booking-form {
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 30px 40px;
+  padding: 37px 48px;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: 100%;
   font-family: 'Helvetica Neue', sans-serif;
-  top: 187px;
+  top: 234px;
   position: relative;
-  left: 867px;
+  left: 1100px;
 }
+
 .booking-form h2 {
   margin-top: 0;
   color: #333;
@@ -197,11 +260,11 @@ filter: brightness(60%);
   white-space: nowrap;
   color: #f7f7f7;
   z-index: 0;
-  top: 120%;
+  top: 130%;
   left: 2%;
 }
 .our {
-  position: relative;
+  position: absolute;
   margin-top: 0;
   margin-bottom: 0;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
@@ -210,7 +273,7 @@ filter: brightness(60%);
   color: #151515;
   font-size: 34px;
   line-height: 1.375;
-  top: 375px;
+  top: 135%;
   left: 8%;
 }
 
@@ -240,7 +303,7 @@ filter: brightness(60%);
   gap: 20px;
   justify-content: center;
   position: absolute;
-  top: 142%;
+  top: 151%;
 }
 
 .image-container {
@@ -303,3 +366,81 @@ filter: brightness(60%);
   font-weight: bold;
   color: #f89d13;
 }
+
+.gray {
+  width: 99%;
+  height: 80%;
+  position: absolute;
+  background-color: #f7f7f7;
+  top: 230%;
+}
+
+
+.our_serv {
+  position: absolute;
+  font-size: 55px;
+  color: #000;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  top: 240%;
+left: 39.5%;
+}
+
+.tickets {
+  position: absolute;
+  font-size: 15px;
+  color: #000;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  top: 260%;
+  left: 5%;
+
+}
+.cruises {
+  position: absolute;
+  font-size: 15px;
+  color: #000;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  top: 260%;
+  left: 32%;
+}
+.hotel {
+  position: absolute;
+  font-size: 15px;
+  color: #000;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  top: 260%;
+  left: 54%;
+}
+.tours {
+  position: absolute;
+  font-size: 15px;
+  color: #000;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  top: 260%;
+  left: 78%;
+}
+.plane {
+  position: absolute;
+  top: 251%;
+  left: 5%;
+  width: 3%;
+  
+}
+.cruis {
+  position: absolute;
+  top: 251%;
+  left: 32%;
+  width: 3%;
+}
+.hotell {
+  position: absolute;
+  top: 251%;
+  left: 54%;
+  width: 3%;
+}
+.tur {
+  position: absolute;
+  top: 251%;
+  left: 78%;
+  width: 3%;
+}
+
