@@ -19,7 +19,7 @@
 
 
       <label>Отель:</label>
-      <input list="hotels" name="hotel">
+      <input list="hotels" name="hotel" required>
       <datalist id="hotels">
         <!-- создать столько количество <option> сколько записано, в стране $_POST['to'], в базе данных Trevel_Vista, в таблице Hotels, а также записать в <option value=''>  имя отеля -->
         <?php
@@ -49,15 +49,19 @@
         }
         $link->close();
         
-        echo "</datalist><br><label for='adults'>Логин аккаунтов взрослых:</label>";
+        echo "</datalist><br><label for='days'>Дней проживание:</label>
+        <br><input type='number' id='days' name='days' min=1 max=30 value=1>
+        <br><label for='nights'>Ночей проживание:</label>
+        <br><input type='number' id='nights' name='nights' min=0 max=30 value=0>
+        <br><label for='adultsLogin'>Логин аккаунтов взрослых:</label>";
         // <!-- создать столько количество <input> сколько записано $_POST['adults']-->
         for ($i=0; $i < $adults; $i++) { 
-            echo "<br><input type='text' id='adults' name='userLogin' required>";
+            echo "<br><input type='text' id='adultsLogin' name='adultLogin' required>";
         }
-        echo "<br><label for='children'>Логин аккаунтов детей:</label>";
+        echo "<br><label for='childrenLogin'>Логин аккаунтов детей:</label>";
         // <!-- создать столько количество <input> сколько записано $_POST['children']-->
         for ($i=0; $i < $children; $i++) { 
-            echo "<br><input type='text' id='children' name='userLogin' required>";
+            echo "<br><input type='text' id='childrenLogin' name='childrenLogin' required>";
         }
       ?>
       <br><br><input type="submit" value="Забронировать поездку">
