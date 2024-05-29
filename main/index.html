@@ -101,25 +101,28 @@
 
 <!-- HTML/JavaScript -->
 <script>
-    // Проверяем значение cookie
-    const authCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('auth='));
-    if (authCookie) {
-        const authValue = authCookie.split('=')[1];
-        if (authValue === 'true') {
-            console.log('Пользователь авторизован.');
-            // Получаем элемент кнопки
-            const signUpButton = document.querySelector('#signUp');
-            signUpButton.style.display = 'none';
-            // При успешной авторизации меняем цвет фона
-            function handleLoginSuccess() {
+    window.addEventListener("load", (event) => {
+        // Проверяем значение cookie
+        const authCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('auth='));
+        if (authCookie) {
+            const authValue = authCookie.split('=')[1];
+            if (authValue === 'true') {
+                console.log('Пользователь авторизован.');
+                // Получаем элемент кнопки
+                const signUpButton = document.getElementById('signUp');
+                signUpButton.style.display = 'none';
                 
+                // При успешной авторизации меняем цвет фона
+                function handleLoginSuccess() {
+                    signUpButton.style.display = 'none';
+                }
+            } else {
+                console.log('Пользователь НЕ авторизован.');
             }
         } else {
-            console.log('Пользователь НЕ авторизован.');
+            console.log('нету печенек.');
         }
-    } else {
-        console.log('нету печенек.');
-    }
+    });
 </script>
 
 
