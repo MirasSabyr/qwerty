@@ -18,8 +18,9 @@
 
 
 
-      <label for="hotels">Отель:</label>
-      <select name="hotel" id="hotels">
+      <label>Отель:</label>
+      <input list="hotels" name="hotel">
+      <datalist id="hotels">
         <!-- создать столько количество <option> сколько записано, в стране $_POST['to'], в базе данных Trevel_Vista, в таблице Hotels, а также записать в <option value=''>  имя отеля -->
         <?php
         $host = 'localhost'; // имя хоста
@@ -40,7 +41,7 @@
             // Обработка результатов запроса
             while ($row = $result->fetch_assoc()) {
                 // Другие поля, которые вы хотите вывести
-                echo "<option value='" . $row['name'] . "' id='hotel'>" . $row['name'] . " звезд " . $row['stars'] ."; стоимость за ночь: " . $row['costPerNight'] . "</option>";
+                echo "<option value='".$row['name']."'>".$row['stars']." звезд;"." стоимость за ночь: ". $row['costPerNight']."</option>";
             }
             
         } else {
@@ -48,18 +49,18 @@
         }
         $link->close();
         
-        echo "</select><br><label for='adults'>Логин аккаунтов взрослых:</label>";
+        echo "</datalist><br><label for='adults'>Логин аккаунтов взрослых:</label>";
         // <!-- создать столько количество <input> сколько записано $_POST['adults']-->
         for ($i=0; $i < $adults; $i++) { 
-            echo "<input type='text' id='adults' name='userLogin' required>";
+            echo "<br><input type='text' id='adults' name='userLogin' required>";
         }
         echo "<br><label for='children'>Логин аккаунтов детей:</label>";
         // <!-- создать столько количество <input> сколько записано $_POST['children']-->
         for ($i=0; $i < $children; $i++) { 
-            echo "<input type='text' id='children' name='userLogin' required>";
+            echo "<br><input type='text' id='children' name='userLogin' required>";
         }
       ?>
-      <input type="submit" value="Забронировать поездку">
+      <br><br><input type="submit" value="Забронировать поездку">
   </form>
 </body>
 </html>

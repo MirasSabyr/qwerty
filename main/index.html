@@ -28,10 +28,22 @@
   <h2>Бронирование поездки</h2>
   <form action="/ticket.php" method="post">
       <label for="from">Откуда:</label>
-      <input type="text" id="from" name="from" placeholder="Введите место отправления" required>
+      <input list="from" name="from" placeholder="Введите место отправления" required>
+    <datalist id="from">
+        <option value="Россия">
+        <option value="Казахстан">
+        <option value="Турция">
+        <option value="США">
+    </datalist>
 
       <label for="to">Куда:</label>
-      <input type="text" id="to" name="to" placeholder="Введите место назначения" required>
+      <input list="to" name="to" placeholder="Введите место назначения" required>
+      <datalist id="to">
+        <option value="Россия">
+        <option value="Казахстан">
+        <option value="Турция">
+        <option value="США">
+      </datalist>
 
       <label for="departure-date">Дата отправления:</label>
       <input type="date" id="departure-date" name="departure-date" required>
