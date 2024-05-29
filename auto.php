@@ -23,6 +23,9 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
             setcookie('isAdmin', 'true');
             $_COOKIE['isAdmin'] = 'true';
         }
+        else {
+            $_COOKIE['isAdmin'] = 'true';
+        }
       if (!isset($_COOKIE['auth'])) { // если куки нет
         setcookie('auth', 'true');
         $_COOKIE['auth'] = 'true';
