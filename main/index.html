@@ -109,11 +109,8 @@
             console.log('Пользователь авторизован.');
             // Получаем элемент кнопки
             const signUpButton = document.querySelector('#signUp');
+            // При успешной авторизации меняем элемент
             signUpButton.style.display = 'none';
-            // При успешной авторизации меняем цвет фона
-            function handleLoginSuccess() {
-                
-            }
         } else {
             console.log('Пользователь НЕ авторизован.');
         }

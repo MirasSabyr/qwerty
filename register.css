@@ -22,3 +22,12 @@
       font-family: cursive;
       font-size: 4.5vw;
   }
+  .voiti{
+    position: absolute;
+    left: 37%;
+    top: 93.7%;
+    text-decoration: none;
+  }
+  .voiti:hover{
+    color: red;
+  }
