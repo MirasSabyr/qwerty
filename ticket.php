@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="ticket.css" rel=stylesheet>
 </head>
 <body>
 <!-- вторая форма запроса, которая дополняет первую -->
@@ -17,7 +18,7 @@
 
 
 
-
+    <fieldest>
       <label>Отель:</label>
       <input list="hotels" name="hotel" required>
       <datalist id="hotels">

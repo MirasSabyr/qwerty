@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="admin_panel.css" rel=stylesheet>
+</head>
+<body>
+    <h1>Админ панель</h1>
 <?php
 session_start();
 if (!$_COOKIE['isAdmin']) {
@@ -5,7 +15,6 @@ if (!$_COOKIE['isAdmin']) {
 header('Location: index.php'); 
 exit; 
 }
-echo $_GET['error'];
 ?>
 
 <!-- Показать интерфейс администратора  -->
@@ -34,3 +43,5 @@ echo $_GET['error'];
 <label for='changeAdmin'><?php if (isset($_POST['changeAdmin'])) echo $_POST['changeAdmin'] ?> 0 - убрать права; 1 - дать права</label>
 <input type='submit' value='Изменить права администратора'> </form>
 <a href='exit.php' style='color:red;'>Выход</a>
+</body>
+</html>

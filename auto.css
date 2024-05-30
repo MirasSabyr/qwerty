@@ -20,7 +20,23 @@
     
     .myText {
         position: absolute;
-        left: 30%;
+        left: 20%;
         font-family: cursive;
         font-size: 4.5vw;
+        line-height: 1.375;
+      letter-spacing: 0.06em;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-family: "Oswald", Helvetica, Arial, sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #151515;
+    }
+
+    @media(max-width: 835px){
+        .myText{
+            position: absolute;
+            top: 12%;
+        }
     }
