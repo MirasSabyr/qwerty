@@ -56,12 +56,12 @@
         <br><label for='adultsLogin'>Логин аккаунтов взрослых:</label>";
         // <!-- создать столько количество <input> сколько записано $_POST['adults']-->
         for ($i=0; $i < $adults; $i++) { 
-            echo "<br><input type='text' id='adultsLogin' name='adultLogin' required>";
+            echo "<br><input type='text' id='adultsLogin' name='adultsLogin[]' required><span> Взрослый-родитель? </span><input type='checkbox' name='isHaveLinks[]' value=$i>";
         }
         echo "<br><label for='childrenLogin'>Логин аккаунтов детей:</label>";
         // <!-- создать столько количество <input> сколько записано $_POST['children']-->
         for ($i=0; $i < $children; $i++) { 
-            echo "<br><input type='text' id='childrenLogin' name='childrenLogin' required>";
+            echo "<br><input type='text' id='childrenLogin' name='childrenLogin[]' required>";
         }
       ?>
       <br><br><input type="submit" value="Забронировать поездку">
