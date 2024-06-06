@@ -10,15 +10,6 @@
 <body>       
 
 <?php
-
-if ($_COOKIE['isAdmin']==0) {
-  // Перенаправление на главную страницу 
-
-  header('Location: index.php'); 
-
-  exit; 
-}
-
 $host = 'localhost'; // имя хоста
 $db_name = 'Trevel_Vista'; // имя базы данных
 $user = 'root'; // имя пользователя
