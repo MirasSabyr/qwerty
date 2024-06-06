@@ -1,6 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url(bg\ tickets.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
     margin: 0;
     padding: 0;

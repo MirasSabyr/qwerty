@@ -8,7 +8,6 @@
     <link href="account.css" rel="stylesheet">
 </head>
 <body>       
-
 <?php
 $host = 'localhost'; // имя хоста
 $db_name = 'Trevel_Vista'; // имя базы данных
@@ -46,6 +45,7 @@ if ($_COOKIE['auth']) {
 
     <input type='submit' value='Сохранить изменения'>
   </form>";
+  
 
   $nFName=$_POST['new_fName'];
   $nSName=$_POST['new_sName'];
@@ -72,8 +72,14 @@ if ($_COOKIE['auth']) {
 else {
   echo "<p class='error'>Вы не авторизованы</p>";
 }
-
 ?>
+<script>
+    const changePassButton = document.getElementById('changePass');
+    const passwordForm = document.querySelector('.passwordForm');
 
+    changePassButton.addEventListener('click', () => {
+        passwordForm.style.display = 'block'; // Показать форму
+    });
+</script>
 </body>
 </html>
