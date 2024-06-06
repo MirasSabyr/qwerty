@@ -128,6 +128,18 @@ input{
     $link = mysqli_connect($host, $user, $password, $db_name) or die(mysqli_error($link));
     mysqli_query($link, "SET NAMES 'utf8'");
     // текст SQL запроса, который будет передан базе
+    function cook($login){
+    if (!isset($_COOKIE['auth'])) { // если куки нет
+        setcookie('auth', 'true');
+        $_COOKIE['auth'] = 'true';
+    } else $_COOKIE['auth'] = 'true';
+    if (!isset($_COOKIE['login'])) { // если куки нет
+        setcookie('auth', "$login");
+        $_COOKIE['auth'] = "$login";
+    } else $_COOKIE['auth'] = "$login";
+    }
+
+
 
     if (!empty($_POST['login']) and !empty($_POST['password'])) {
         $log = $_POST['login'];
@@ -143,10 +155,7 @@ input{
                 $_COOKIE['isAdmin'] = 'true';
             }
             else $_COOKIE['isAdmin'] = 'true';
-        if (!isset($_COOKIE['auth'])) { // если куки нет
-            setcookie('auth', 'true');
-            $_COOKIE['auth'] = 'true';
-        } else $_COOKIE['auth'] = 'true';
+            cook($log);
 
         // Перенаправление на страницу администратора 
 
@@ -156,11 +165,7 @@ input{
         } 
         if (!empty($user)) {
             // прошел авторизацию
-            if (!isset($_COOKIE['auth'])) { // если куки нет
-                setcookie('auth', 'true');
-                $_COOKIE['auth'] = 'true';
-            }
-            else $_COOKIE['auth'] = true;
+            cook($log);
             header("Location: main/index.html");
         } else {
             echo "Неверный логин или пароль.<br>";

@@ -5,16 +5,11 @@
     <link href="register.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="account.css" rel="stylesheet">
 </head>
 <body>       
-<form method="post" action="account.php">
-    <input type="text" class="f1" name="firstName" placeholder="Enter your Login">
-    <input type="text" class="f2" name="secondName" placeholder="Enter your Password">
-    <input type="password" class="f3" name="confirm" placeholder="Confirm Password">
-    <input type="submit" class="p7" value="Отправить">
-</form>
+
 <?php
-session_start();
 
 if ($_COOKIE['isAdmin']==0) {
   // Перенаправление на главную страницу 
@@ -34,28 +29,57 @@ $link = mysqli_connect($host, $user, $db_password, $db_name) or die(mysqli_error
 mysqli_query($link, "SET NAMES 'utf8'");
 // текст SQL запроса, который будет передан базе
 
-if (!empty($_GET['login']) and !empty($_GET['password'])) {
-    $log = $_GET['login'];
-    $pass = $_GET['password'];
-    $confirm = $_GET['confirm'];
-    if ($pass == $confirm) {
-      $query = "SELECT * FROM Пользователи WHERE login='$log' AND password='$pass'";
-      $res = mysqli_query($link, $query);
-      $user = mysqli_fetch_assoc($res);
+if ($_COOKIE['auth']) {
+  $log=$_COOKIE['login'];
 
-      if (empty($user)) {
+  $query = "SELECT * FROM Users WHERE login = '$log'";
+  $res = mysqli_query($link, $query);
+  $user = mysqli_fetch_assoc($res);
+  $id=$user['id'];
+  $fName=$user['firstName'];
+  $sName=$user['secondName'];
 
-        $query = "INSERT INTO Пользователи(login, password) VALUES ('$log','$pass')";
-        mysqli_query($link, $query);
-        $_COOKIE['auth'] = true;
-        echo "Удачная регистрация.<br>";
-      }
-      else{echo "Неудачная регистрация.<br>";}
+  echo "<h1>Профиль пользователя</h1>
+  <p class='fName'>Имя пользователя: $fName</p>
+  <p class='sName'>Фамилия пользователя: $sName</p>
+  <button id='changePass'>Изменить Пароль</button>
 
-    } else {
-        echo "Пароли не совпадают.<br>";
-    }
+  <form method='post' action='' class='passwordForm'>
+    <label for='new_fname'>Новое имя пользователя:</label>
+    <input type='text' id='new_fname' name='new_fname'>
+    <label for='new_sname'>Новое имя пользователя:</label>
+    <input type='text' id='new_sname' name='new_sname'>
 
+    <label for='new_password'>Новый пароль:</label>
+    <input type='password' id='new_password' name='new_password'>
+
+    <input type='submit' value='Сохранить изменения'>
+  </form>";
+
+  $nFName=$_POST['new_fName'];
+  $nSName=$_POST['new_sName'];
+  $nPass=$_POST['new_password'];
+
+  $query = "UPDATE Users SET firstName='$nFName', secondName='$nSName', password='$nPass' WHERE id=$id";
+  $res = mysqli_query($link, $query);
+
+  echo "<table>
+  <tr>
+    <th>Data 1</th>
+    <th style='background-color: yellow'>Data 2</th>
+  </tr>
+  <tr>
+    <td>Calcutta</td>
+    <td style='background-color: yellow'>Orange</td>
+  </tr>
+  <tr>
+    <td>Robots</td>
+    <td style='background-color: yellow'>Jazz</td>
+  </tr>
+</table>";
+}
+else {
+  echo "<p class='error'>Вы не авторизованы</p>";
 }
 
 ?>

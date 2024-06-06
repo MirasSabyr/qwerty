@@ -186,15 +186,16 @@ input{
           if (empty($user)) { 
             $fName=$_POST['firstName'];
             $sName=$_POST['secondName'];
-            $query = "INSERT INTO Users(login, password, firstName, secondName) VALUES (?, ?, ?, ?)"; 
-            $stmt = mysqli_prepare($link, $query);
-            mysqli_stmt_bind_param($stmt, 'ssss', $log, $pass, $fName, $sName);
-            mysqli_stmt_execute($stmt);
+            $query = "INSERT INTO Users(login, password, firstName, secondName) VALUES ('$log', '$pass', '$fName', '$sName')"; 
+            $res = mysqli_query($link, $query);
             if (!isset($_COOKIE['auth'])) { // если куки нет
-              setcookie('auth', 'true');
-              $_COOKIE['auth'] = 'true';
-            }
-            else $_COOKIE['auth'] = 'true';
+                setcookie('auth', 'true');
+                $_COOKIE['auth'] = 'true';
+            } else $_COOKIE['auth'] = 'true';
+            if (!isset($_COOKIE['login'])) { // если куки нет
+                setcookie('auth', "$log");
+                $_COOKIE['auth'] = "$log";
+            } else $_COOKIE['auth'] = "$log";
             header("Location: main/index.html");         
           } 
           else{echo "<p class='error'>Логин занят.</p><br>";} 
