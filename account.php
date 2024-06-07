@@ -8,7 +8,6 @@
     <link href="account.css" rel="stylesheet">
 </head>
 <body>       
-
 <?php
 session_start();
 include "base.php";
@@ -60,6 +59,7 @@ if ($_COOKIE['auth']==true) {
 
     <br><input type='submit' value='Сохранить пароль'>
   </form>";
+  
 
   $nFName=$_POST['new_fName'];
   $nSName=$_POST['new_sName'];
@@ -135,8 +135,14 @@ if ($_COOKIE['auth']==true) {
 else {
   echo "<p class='error'>Вы не авторизованы</p>";
 }
-
 ?>
+<script>
+    const changePassButton = document.getElementById('changePass');
+    const passwordForm = document.querySelector('.passwordForm');
 
+    changePassButton.addEventListener('click', () => {
+        passwordForm.style.display = 'block'; // Показать форму
+    });
+</script>
 </body>
 </html>
