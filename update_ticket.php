@@ -104,6 +104,7 @@ foreach ($adultsLogin as $i => $login) {
 
     $adultId=$user['id'];//id аккаунта взрослого
     //проверка на то есть ли взрослый в списке родителей
+    if (!empty($isHaveLinks)){
     if (in_array($i,$isHaveLinks)) {
         $isHaveLink=1;
         $childrenLinks.=$adultId.",";
@@ -111,13 +112,14 @@ foreach ($adultsLogin as $i => $login) {
     else {
         $isHaveLink=0; 
     }
-    
+    }
+
 
     //сначала сложим цену за проживание ночу и днём(за день надо платить на 25% больше), потом это значенние  сложим с ценой за перелёт
     $cost=($costPerNight*$nights+$costPerNight*$days*1.25)+$distance*10;
 
 
-    $query="INSERT INTO `Tickets` (`id`, `airport`, `hotel`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES (NULL, '$from', '$hotel', $adultId, $cost, $days, $nights, '$departure_date', '$landingTime', 1, $isHaveLink, '$adultLinks')";
+    $query="INSERT INTO `Tickets` (`id`, `airport`, `country`, `hotel`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES (NULL, '$from', '$to', '$hotel', $adultId, $cost, $days, $nights, '$departure_date', '$landingTime', 1, $isHaveLink, '$adultLinks')";
     mysqli_real_escape_string($link,$query); //экранирует специальные символы
     $res = mysqli_query($link, $query);
     // $stmt = $link->prepare($query);
@@ -155,8 +157,9 @@ foreach ($childrenLogin as $i => $login) {
     $cost=($costPerNight*$nights+$costPerNight*$days*1.25)*0.75+$distance*5;
 
 
-    $query="INSERT INTO `Tickets` (`id`, `airport`, `hotel`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES (NULL, '$from', '$hotel', $childrenId, $cost, $days, $nights, '$departure_date', '$landingTime', 0, 1, '$childrenLinks')";
+    $query="INSERT INTO `Tickets` (`id`, `airport`, `country`, `hotel`, `userId`, `cost`, `days`, `nights`, `departureTime`, `landingTime`, `isAdult`, `isHaveLinks`, `links`) VALUES (NULL, '$from', '$to', '$hotel', $childrenId, $cost, $days, $nights, '$departure_date', '$landingTime', 0, 1, '$childrenLinks')";
     mysqli_real_escape_string($link,$query); //экранирует специальные символы
     $res = mysqli_query($link, $query);
 }
+header("Location: main/index.html"); exit();
 ?>

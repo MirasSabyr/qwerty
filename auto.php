@@ -111,14 +111,16 @@ input{
     </style>
 </head>
 <body>
+    <?php session_start(); ?>
+
     <form method="post" action="">
     <h3>Login Here</h3>
     <input type="text" class="f1" name="login" placeholder="Enter your Login" value="">
     <input type="password" class="f2" name="password" placeholder="Enter your Password">
     <input type="submit" class="f6" value="log In">
     </form>
+
     <?php
-    session_start();
     $host = 'localhost'; // имя хоста
     $db_name = 'Trevel_Vista'; // имя базы данных
     $user = 'root'; // имя пользователя
@@ -128,15 +130,17 @@ input{
     $link = mysqli_connect($host, $user, $password, $db_name) or die(mysqli_error($link));
     mysqli_query($link, "SET NAMES 'utf8'");
     // текст SQL запроса, который будет передан базе
+
     function cook($login){
     if (!isset($_COOKIE['auth'])) { // если куки нет
         setcookie('auth', 'true');
         $_COOKIE['auth'] = 'true';
     } else $_COOKIE['auth'] = 'true';
-    if (!isset($_COOKIE['login'])) { // если куки нет
-        setcookie('auth', "$login");
-        $_COOKIE['auth'] = "$login";
-    } else $_COOKIE['auth'] = "$login";
+    // if (!isset($_COOKIE['login'])) { // если куки нет
+    //     setcookie('login', "$login");
+    //     $_COOKIE['login'] = "$login";
+    // } else $_COOKIE['login'] = "$login";
+    $_SESSION['login']="$login";
     }
 
 
@@ -149,26 +153,20 @@ input{
         $res = mysqli_query($link, $query);
         $user = mysqli_fetch_assoc($res);
         if (!empty($user) && $user['isAdmin']) { 
-
-            if (!isset($_COOKIE['isAdmin'])) { // если куки нет
-                setcookie('isAdmin', 'true');
-                $_COOKIE['isAdmin'] = 'true';
-            }
-            else $_COOKIE['isAdmin'] = 'true';
+            $_SESSION['isAdmin'] = 'true';
             cook($log);
 
-        // Перенаправление на страницу администратора 
-
-        header('Location: admin_panel.php'); 
-
-        exit; 
+            // Перенаправление на страницу администратора 
+            header('Location: admin_panel.php'); 
+            exit(); 
         } 
         if (!empty($user)) {
             // прошел авторизацию
             cook($log);
             header("Location: main/index.html");
+            //exit();
         } else {
-            echo "Неверный логин или пароль.<br>";
+            echo "<p class='error'>Неверный логин или пароль.</p><br>";
         }
     }
 

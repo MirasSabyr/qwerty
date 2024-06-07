@@ -113,6 +113,8 @@ input{
     </style>
 </head>
 <body>
+  <?php session_start(); ?>
+  
     <form method="post" action="">
     <h3>Sign Up</h3>
     <input type="text" class="f1" name="login" placeholder="Enter your Login" value="">
@@ -122,6 +124,7 @@ input{
     <input type="text" class="f5" name="secondName" placeholder="Your Second Name">
     <input type="submit" class="f6" value="Sign Up">
     </form>
+
     <?php
     include "base.php";
 
@@ -192,14 +195,16 @@ input{
                 setcookie('auth', 'true');
                 $_COOKIE['auth'] = 'true';
             } else $_COOKIE['auth'] = 'true';
-            if (!isset($_COOKIE['login'])) { // если куки нет
-                setcookie('auth', "$log");
-                $_COOKIE['auth'] = "$log";
-            } else $_COOKIE['auth'] = "$log";
-            header("Location: main/index.html");         
-          } 
+            // if (!isset($_COOKIE['login'])) { // если куки нет
+            //     setcookie('login', "$log");
+            //     $_COOKIE['login'] = "$log";
+            // } else $_COOKIE['login'] = "$log";
+            $_SESSION['login']="$log";
+            header("Location: main/index.html");
+            exit();
+          }
           else{echo "<p class='error'>Логин занят.</p><br>";} 
-          } 
+          }
         else { 
           echo "<p class='error'>Пароль не соответствует требованиям. Ошибки: </p><br>"; 
           foreach ($result as $error) { 

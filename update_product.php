@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_COOKIE['isAdmin']) {
+if ($_SESSION['isAdmin']) {
     $host = 'localhost'; // имя хоста
     $db_name = 'Trevel_Vista'; // имя базы данных
     $user = 'root'; // имя пользователя
@@ -9,6 +9,20 @@ if ($_COOKIE['isAdmin']) {
     // создание подключения к базе   
     $link = mysqli_connect($host, $user, $db_password, $db_name) or die(mysqli_error($link));
     mysqli_query($link, "SET NAMES 'utf8'");
+
+    if (!empty($_POST['adminPanel_userLogin'])) {
+        $userLogin=$_POST['adminPanel_userLogin'];
+        $query = "DELETE FROM `Users` WHERE `login` = $userLogin";
+        mysqli_query($link, $query);
+    }
+
+
+    if (!empty($_POST['adminPanel_ticketId'])) {
+        $ticketId=$_POST['adminPanel_ticketId'];
+        $query = "DELETE FROM `Tickets` WHERE `id` = $ticketId";
+        mysqli_query($link, $query);
+    }
+
 
     if (!empty($_POST['changeAdmin'])) {
         $userId = $_POST['userId_toChangeAdmin'];
