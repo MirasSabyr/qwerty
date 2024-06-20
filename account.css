@@ -5,9 +5,22 @@ body {
 h1 {
     color: #333;
 }
-.fName, .sName {
+h2 {
+    color: #42565a;
+}
+.fName, .sName, .login{
     font-weight: bold;
     margin-bottom: 10px;
+}
+.nameForm {
+    margin-top: 20px;
+    display: none;
+    width: 50%;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    background-color: rgb(83, 148, 74);
+    border-radius: 5px;
 }
 .passwordForm {
     margin-top: 20px;
@@ -16,7 +29,7 @@ h1 {
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(185, 111, 41);
     border-radius: 5px;
 }
 label {
@@ -24,7 +37,7 @@ label {
     margin-bottom: 5px;
 }
 input[type="text"], input[type="password"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -39,6 +52,17 @@ input[type="submit"] {
     cursor: pointer;
 }
 input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+button {
+    background-color: #e2a03b;
+    color: #ffffff;
+    border: none;
+    border-radius: 2.5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button:hover {
     background-color: #0056b3;
 }
 .error {

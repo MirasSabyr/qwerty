@@ -12,7 +12,7 @@
 session_start();
 if ($_SESSION['isAdmin']==false) {
 // Перенаправление на главную страницу 
-header('Location: main/index.html'); 
+header('Location: index.html'); 
 exit; 
 }
 ?>

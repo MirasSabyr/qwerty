@@ -161,5 +161,5 @@ foreach ($childrenLogin as $i => $login) {
     mysqli_real_escape_string($link,$query); //экранирует специальные символы
     $res = mysqli_query($link, $query);
 }
-header("Location: main/index.html"); exit();
+header("Location: index.html"); exit();
 ?>

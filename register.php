@@ -202,7 +202,7 @@ input{
             //     $_COOKIE['login'] = "$log";
             // } else $_COOKIE['login'] = "$log";
             $_SESSION['login']="$log";
-            header("Location: main/index.html");
+            header("Location: index.html");
             exit();
           }
           else{echo "<p class='error'>Логин занят.</p><br>";} 

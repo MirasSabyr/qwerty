@@ -163,7 +163,7 @@ input{
         if (!empty($user)) {
             // прошел авторизацию
             cook($log);
-            header("Location: main/index.html");
+            header("Location: index.html");
             //exit();
         } else {
             echo "<p class='error'>Неверный логин или пароль.</p><br>";

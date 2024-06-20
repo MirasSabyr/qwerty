@@ -38,42 +38,34 @@ if ($_COOKIE['auth']==true) {
   $pass=$user['password'];
 
   echo "<h1>Профиль пользователя</h1>
+  <p class='login'>Логин пользователя: $log</p>
   <p class='fName'>Имя пользователя: $fName</p>
   <p class='sName'>Фамилия пользователя: $sName</p>
   <button id='changeNames'>Изменить имя/фамилия</button>
   <button id='changePass'>Изменить Пароль</button>
 
-  <form method='post' action='' class='nameForm'>
+  <form method='post' action='update_accountNames.php' class='nameForm'>
   <label for='new_fname'>Новое имя пользователя:</label><br>
-  <input type='text' id='new_fname' name='new_fname'><br>
+  <input type='text' id='new_fname' name='new_fName'><br>
   <label for='new_sname'>Новое фамилия пользователя:</label><br>
-  <input type='text' id='new_sname' name='new_sname'><br>
+  <input type='text' id='new_sname' name='new_sName'><br>
+  <input type='hidden' value='$id' name='userId'>
   <br><input type='submit' value='Сохранить изменения'>
   </form>
   
-  <form method='post' action='' class='passwordForm'>
+  <form method='post' action='update_accountPassword.php' class='passwordForm'>
     <br><label for='new_password'>Новый пароль:</label><br>
     <input type='password' id='new_password' name='new_password'><br>
     <label for='new_password'>Старый пароль:</label><br>
     <input type='password' id='comfirm_password' name='comfirm_password'><br>
-
+    <input type='hidden' value='$id' name='userId'>
     <br><input type='submit' value='Сохранить пароль'>
   </form>";
-  
 
-  $nFName=$_POST['new_fName'];
-  $nSName=$_POST['new_sName'];
-  $nPass=$_POST['new_password'];
-  $cPass=$_POST['comfirm_password'];
-  if (!empty($nFName) and !empty($nSName) and !empty($nPass) and !empty($cPass)) {
-    if ($cPass=$pass) {
-    $query = "UPDATE Users SET firstName='$nFName', secondName='$nSName', password='$nPass' WHERE id=$id";
-    $res = mysqli_query($link, $query);
-    } else "Вы не правильно вели старый пароль";
-  }
   
   echo "<h2>Ваши билеты</h2>
   <table><tr>
+    <th>ID билета:</th>
     <th>Аэропорт:</th>
     <th>Страна назначения:</th>
     <th>Отель проживание:</th>
@@ -92,6 +84,7 @@ if ($_COOKIE['auth']==true) {
   
 
   while ($ticket = mysqli_fetch_assoc($res)) {
+    $ticketId=$ticket['id'];
     $from=$ticket['airport'];
     $to=$ticket['country'];
     $hotel=$ticket['hotel'];
@@ -118,7 +111,8 @@ if ($_COOKIE['auth']==true) {
     if ($ticket['isAdult']==0 and $ticket['isHaveLinks']==0) $userIs="Студент";
     
     
-    echo "<tr> <td>$from</td>
+    echo "<tr> <td>$ticketId</td>
+    <td>$from</td>
     <td>$to</td>
     <td>$hotel</td>
     <td>$cost</td>
@@ -136,13 +130,23 @@ else {
   echo "<p class='error'>Вы не авторизованы</p>";
 }
 ?>
-<script>
-    const changePassButton = document.getElementById('changePass');
-    const passwordForm = document.querySelector('.passwordForm');
+ <script>
+        const changePassButton = document.getElementById('changePass');
+        const passwordForm = document.querySelector('.passwordForm');
+        const changeNamesButton = document.getElementById('changeNames');
+        const nameForm = document.querySelector('.nameForm');
 
-    changePassButton.addEventListener('click', () => {
-        passwordForm.style.display = 'block'; // Показать форму
-    });
-</script>
+        // Обработчик для кнопки "Изменить Пароль"
+        changePassButton.addEventListener('click', () => {
+            passwordForm.style.display = 'block'; // Показать форму смены пароля
+            nameForm.style.display = 'none'; // Скрыть форму смены имени/фамилии
+        });
+
+        // Обработчик для кнопки "Изменить имя/фамилия"
+        changeNamesButton.addEventListener('click', () => {
+            nameForm.style.display = 'block'; // Показать форму смены имени/фамилии
+            passwordForm.style.display = 'none'; // Скрыть форму смены пароля
+        });
+    </script>
 </body>
 </html>

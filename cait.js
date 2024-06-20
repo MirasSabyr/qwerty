@@ -12,6 +12,13 @@ $(".theme-switch").on("click", () => {
             // Получаем элемент кнопки
             const signUpButton = document.getElementById('signUp');
             signUpButton.style.display = 'none';
+            const logInButton = document.getElementById('logIn');
+            logInButton.style.display = 'none';
+            const exitButton = document.getElementById('exit');
+            exitButton.style.display = 'block';
+            const accountButton = document.getElementById('account');
+            accountButtonButton.style.display = 'block';
+            accountButton.textContent="тут должен быть логин";
             
             // При успешной авторизации меняем цвет фона
         } else {

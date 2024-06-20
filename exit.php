@@ -7,5 +7,5 @@ if (isset($_COOKIE['auth'])) {
 }
 $_SESSION['login']=NULL;
 $_SESSION['isAdmin']=false;
-header('Location: main/index.html', true, 301); exit();
+header('Location: index.html', true, 301); exit();
 ?>
